@@ -4,7 +4,7 @@ services:
   zookeeper:
     image: docker.io/bitnami/zookeeper:3.8
     ports:
-      - "2181"
+      - "2181:2181"
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
     volumes:
@@ -12,7 +12,7 @@ services:
   kafka-0:
     image: docker.io/bitnami/kafka:3.1
     ports:
-      - "9092"
+      - "9092:9092"
     environment:
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_CFG_BROKER_ID=0
@@ -24,7 +24,7 @@ services:
   kafka-1:
     image: docker.io/bitnami/kafka:3.1
     ports:
-      - "9092"
+      - "19092:9092"
     environment:
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_CFG_BROKER_ID=1
@@ -36,7 +36,7 @@ services:
   kafka-2:
     image: docker.io/bitnami/kafka:3.1
     ports:
-      - "9092"
+      - "39092:9092"
     environment:
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_CFG_BROKER_ID=2
